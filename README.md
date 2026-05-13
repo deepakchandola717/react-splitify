@@ -1,13 +1,5 @@
 # react-splitify
-Instructions for Splitlify(Splitwise like expense sharing application).
-
-Updated version below, based on your original Splitify requirements. 
-
----
-
-# Splitify — Full-Stack Web App Requirements
-
-Build a full-stack web application called **Splitify**, similar to Splitwise, for managing shared expenses between friends, flatmates, families, couples, travel groups, and teams.
+Build a full-stack web application called **Splitify**, similar to Splitwise, for managing shared expenses between friends, flatmates, families, travel groups, and teams.
 
 The application must be built using:
 
@@ -38,9 +30,9 @@ The application must be built using:
 
 ### General Requirement
 
-The frontend and backend should be separate applications.
+The frontend and backend should be separate repos.
 
-All persistent data must be stored in PostgreSQL. Do not use Firebase, Supabase, SQLite, local-only storage, or browser-only persistence as the primary storage mechanism.
+All persistent data must be stored in PostgreSQL. Do not use Mongo, Firebase, Supabase, SQLite, local-only storage, or browser-only persistence as the primary storage mechanism.
 
 ---
 
@@ -95,6 +87,7 @@ Authentication should use:
 * Rate limiting for sensitive authentication actions.
 * Clear error handling for invalid credentials, expired sessions, and unauthorised access.
 
+You can do email verification using node-mailer.
 Optional login methods such as Google login, Apple login, or phone OTP login are not required for the main version.
 
 ---
@@ -257,7 +250,6 @@ Expense creation should be easy to understand. A good UI may divide it into sect
 * Calculation preview.
 * Confirmation.
 
-The exact layout is up to the developer.
 
 ---
 
@@ -331,7 +323,7 @@ A good approach is to maintain a transaction or ledger-style record of balance m
 * Settlement edit.
 * Settlement deletion.
 
-The developer is free to decide the exact implementation.
+Feel free to decide the exact implementation.
 
 ---
 
@@ -499,7 +491,7 @@ $100.25 should be stored as 10025 cents
 
 # 14. Database Design Expectations
 
-The developer must design the PostgreSQL database schema using Sequelize models and migrations.
+Design the PostgreSQL database schema using Sequelize models and migrations.
 
 The database design should be clean, normalised, and suitable for a real-world financial tracking application.
 
@@ -521,7 +513,7 @@ The design should ensure:
 * Support for multiple currencies.
 * Consistent timestamps across records.
 
-The schema should be designed by the developer based on the feature requirements. It should not be a random set of tables created only to make the UI work.
+The schema should be designed based on the feature requirements. It should not be a random set of tables created only to make the UI work.
 
 ---
 
@@ -588,8 +580,6 @@ When a settlement is recorded, edited, or deleted, the backend should:
 
 # 16. API Design Expectations
 
-The developer is free to design the API endpoints.
-
 The API design must satisfy all feature requirements in this document.
 
 The backend APIs should support:
@@ -609,7 +599,7 @@ The backend APIs should support:
 * Pagination.
 * File or receipt attachment metadata if implemented.
 
-API responses should be consistent.
+API responses should be consistent following a proper structure.
 
 A good response format should clearly distinguish:
 
@@ -654,7 +644,7 @@ The user must not be able to:
 
 The frontend should be a responsive React web application.
 
-The developer is free to design the layout, but the app should be clear and usable.
+You are free to design the layout, but the app should be clear and usable.
 
 Suggested pages:
 
@@ -719,7 +709,7 @@ This is important because:
 * It makes future testing easier.
 * It reduces the chance of inconsistent balance calculations.
 
-The developer can decide the exact structure, but calculation logic should not be scattered randomly across the codebase.
+Feel free to decide the exact structure, but calculation logic should not be scattered randomly across the codebase.
 
 The system should correctly handle:
 
@@ -738,9 +728,7 @@ The system should correctly handle:
 
 # 20. Testing
 
-Automated testing is optional.
-
-However, the developer should manually verify all critical flows, especially:
+Verify all critical flows, especially:
 
 * Signup and login.
 * Creating friends.
@@ -764,6 +752,7 @@ However, the developer should manually verify all critical flows, especially:
 * Permission checks.
 * Protected API access.
 
+Optional - add unit tests
 If automated tests are added, calculation logic and backend business rules should be prioritised first.
 
 ---
